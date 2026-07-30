@@ -3,7 +3,7 @@ package com.assistivecraft.assist;
 import com.assistivecraft.ModuleManager;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.component.DataComponentTypes;
+import net.minecraft.item.FoodComponent;
 import net.minecraft.item.ItemStack;
 
 /**
