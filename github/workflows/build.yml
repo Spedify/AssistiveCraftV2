@@ -26,11 +26,10 @@ jobs:
           gradle-version: '8.5'
 
       - name: Build with Gradle
-        working-directory: AssistiveCraft
         run: gradle build
 
       - name: Upload built jar
         uses: actions/upload-artifact@v4
         with:
           name: AssistiveCraft-jar
-          path: AssistiveCraft/build/libs/*.jar
+          path: build/libs/*.jar
