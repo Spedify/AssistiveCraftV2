@@ -1,5 +1,6 @@
 package com.assistivecraft.render;
 
+import com.assistivecraft.ModuleManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
 import net.minecraft.client.MinecraftClient;
@@ -10,7 +11,6 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import org.joml.Matrix4f;
-
 /**
  * Draws high-contrast bounding-box outlines around living entities so
  * low-vision players can locate mobs through foliage, fog, or dense terrain.
