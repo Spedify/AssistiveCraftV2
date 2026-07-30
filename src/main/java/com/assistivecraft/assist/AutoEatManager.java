@@ -30,9 +30,9 @@ public class AutoEatManager {
         ClientPlayerEntity player = client.player;
 
         if (eating) {
-            if (player.getHungerManager().getFoodLevel() < 20 &&
-                    player.isUsingItem() &&
-                    player.getMainHandStack().getComponents().contains(DataComponentTypes.FOOD)) {
+           if (player.getHungerManager().getFoodLevel() < 20 &&
+        player.isUsingItem() &&
+        player.getMainHandStack().getItem().getFoodComponent() != null) {
                 return; // keep holding use key until done chewing / full
             }
             stopEatingIfActive(client);
@@ -63,7 +63,7 @@ public class AutoEatManager {
     private static int findFoodInHotbar(ClientPlayerEntity player) {
         for (int i = 0; i < 9; i++) {
             ItemStack stack = player.getInventory().main.get(i);
-            if (!stack.isEmpty() && stack.getComponents().contains(DataComponentTypes.FOOD)) {
+            if (!stack.isEmpty() && stack.getItem().getFoodComponent() != null) {
                 return i;
             }
         }
