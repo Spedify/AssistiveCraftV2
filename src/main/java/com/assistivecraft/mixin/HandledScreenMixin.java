@@ -11,15 +11,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Screen.class)
 public class HandledScreenMixin {
 
-    @Inject(method = "keyPressed", at = @At("HEAD"))
-    private void assistivecraft$forwardMovementKeyPress(int keyCode, int scanCode, int modifiers, CallbackInfo ci) {
-        if ((Object) this instanceof HandledScreen<?>) forwardToMovementOptions(keyCode, true);
-    }
+ @Inject(method = "keyPressed", at = @At("HEAD"), require = 0, expect = 0)
+private void assistivecraft$forwardMovementKeyPress(int keyCode, int scanCode, int modifiers, CallbackInfo ci) {
+    if ((Object) this instanceof HandledScreen<?>) forwardToMovementOptions(keyCode, true);
+}
 
-    @Inject(method = "keyReleased", at = @At("HEAD"))
-    private void assistivecraft$forwardMovementKeyRelease(int keyCode, int scanCode, int modifiers, CallbackInfo ci) {
-        if ((Object) this instanceof HandledScreen<?>) forwardToMovementOptions(keyCode, false);
-    }
+@Inject(method = "keyReleased", at = @At("HEAD"), require = 0, expect = 0)
+private void assistivecraft$forwardMovementKeyRelease(int keyCode, int scanCode, int modifiers, CallbackInfo ci) {
+    if ((Object) this instanceof HandledScreen<?>) forwardToMovementOptions(keyCode, false);
+}
 
     private void forwardToMovementOptions(int keyCode, boolean pressed) {
         MinecraftClient client = MinecraftClient.getInstance();
